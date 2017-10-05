@@ -11,10 +11,19 @@
 |
 */
 
+use App\Task;
+
 Route::get('/', function () {
     return view('welcome');
 });
 
 Route::get('home', function(){
     echo 'Hola sóc la HOME';
+});
+
+Route::get('tasks','TaskController@index');
+
+
+Route::get('createFakeTask', function (){
+    factory(Task::class,50)->create();
 });
